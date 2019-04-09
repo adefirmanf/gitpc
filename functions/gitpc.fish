@@ -2,7 +2,7 @@ function gitpc -d "Git pull-commit"
   # Package entry-point
 
   # Read the arguments
-  set -l opts 'h/help' 'r/remote=' 's/stash='
+  set -l opts 'h/help' 'r/remote=' 's/stash=' 'p/pull'
   argparse $opts -- $argv
     
     # Print help
@@ -16,5 +16,5 @@ function gitpc -d "Git pull-commit"
 
   # There are 2 methods for stashing, pop & apply. By default stash used apply
   set -lq _flag_stash; or set -l _flag_stash 'apply'
-  __gitpc_main $_flag_remote $_flag_stash
+  __gitpc_main $_flag_remote $_flag_stash $_flag_pull
 end
